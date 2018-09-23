@@ -66,6 +66,7 @@ app.post '/symptoms', (req, res) ->
                 console.log thisParticularPatient
                 thisParticularPatient.save()
                 res.redirect '/blah.html'
+                console.log 'redirected!'
                 return
             console.log data
             return
