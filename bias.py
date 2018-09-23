@@ -22,4 +22,6 @@ for x in range(1,len(sys.argv)):
     c.append[x]
 
 plt.plot(c,s)
-plt.savefig('foo.png')
+plt.xlabel('#Report')
+plt.ylabel('Symptom Score')
+plt.savefig('foo.png', bbox_inches='tight')
