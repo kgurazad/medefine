@@ -2,6 +2,10 @@ import sys
 from scipy import stats
 import numpy as np
 from scipy.optimize import curve_fit 
+import matplotlib.pyplot as plt
+import numpy as np
+from sklearn import datasets, linear_model
+from sklearn.metrics import mean_squared_error, r2_score
 s = []
 for x in range(1,len(sys.argv)):
     s.append(sys.argv[x])
@@ -29,7 +33,5 @@ def predict_next(a, b, c, d, e, f, g, h, i, j, k, l, m):
     x = len(sys.argv)
     return a*x*x*x*x*x*x*x*x*x*x*x*x*x+ b*x*x*x*x*x*x*x*x*x*x*x*x+c*x*x*x*x*x*x*x*x*x*x+d*x*x*x*x*x*x*x*x*x+e*x*x*x*x*x*x*x*x+f*x*x*x*x*x*x*x+g*x*x*x*x*x*x+h*x*x*x*x*x+i*x*x*x*x+j*x*x*x+k*x*x+l*x+m
 
-
-
-
-
+plt.plot(c,s)
+savefig('foo.jpg')
