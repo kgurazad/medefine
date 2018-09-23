@@ -42,10 +42,12 @@ app.get '/', (req, res) ->
     return
 
 app.post '/symptoms', (req, res) ->
-    console.log 'received symptoms POST'
     uname = req.body.uname
     symptoms = req.body.symptoms
+    console.log uname
+    console.log symptoms
     patient.findOne {email: uname}, (err, thisParticularPatient) ->
+        console.log thisParticularPatient
         if thisParticularPatient == null
             return
         newSymptoms = data.symptomScores
