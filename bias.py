@@ -13,6 +13,6 @@ for x in range(1,len(sys.argv)):
 sum = 0
 
 for x in s:
-    sum = sum + int(float(x))
+    sum = sum + float(x)
 
 print(sum/(len(sys.argv)-1))
