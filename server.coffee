@@ -65,11 +65,11 @@ app.post '/symptoms', (req, res) ->
                 thisParticularPatient.set {bias: Number(data2)}
                 console.log thisParticularPatient
                 thisParticularPatient.save()
+                res.sendFile __dirname + '/foo.png'
                 return
             console.log data
             return
         return    
-    res.sendFile __dirname + '/foo.png'
     return
 
 app.post '/hms/admin', (req, res) ->
