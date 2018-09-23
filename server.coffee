@@ -45,17 +45,16 @@ app.get '/', (req, res) ->
 app.post '/symptoms', (req, res) ->
     uname = req.body.uname
     symptoms = req.body.symptoms
-    console.log uname
-    console.log symptoms
     patient.findOne {email: uname}, (err, thisParticularPatient) ->
-        console.log thisParticularPatient
         if thisParticularPatient == null
             return
         newSymptoms = thisParticularPatient.symptomScores
         scoreps = child.spawn '/usr/bin/python3', ['medscore.py', symptoms]
+        console.log scoreps
         scoreps.stdout.on 'data', (data) ->
             newSymptoms.push Number(data)
             biasps = child.spawn '/usr/bin/python3', ['medscore.py'].concat newSymptoms
+            console.log biasps
             biasps.stdout.on 'data', (data2) ->
                 thisParticularPatient.set {symptomScores: newSymptoms}
                 thisParticularPatient.set {bias: Number(data2)}
