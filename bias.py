@@ -14,7 +14,7 @@ for x in range(1,len(sys.argv)):
 sum = 0
 
 for x in s:
-    sum = sum + x
+    sum = sum + int(float(x))
 
 print(sum/(len(sys.argv)-1))
 sys.stderr.write((sum/(len(sys.argv)-1)) + " <- bias")
