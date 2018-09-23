@@ -69,7 +69,7 @@ app.post '/symptoms', (req, res) ->
             console.log data
             return
         return    
-    res.sendStatus 200
+    res.sendFile foo.png
     return
 
 app.post '/hms/admin', (req, res) ->
