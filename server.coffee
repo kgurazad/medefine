@@ -1,5 +1,37 @@
 express = require 'express'
+mongoose = require 'mongoose'
+child = require 'child_process'
 app = express()
+
+patientSchema = new mongoose.Schema {
+    name: String,
+    password: Number,
+    symptomScores: Array,
+    bias: Number,
+    primaryDocEmail: String,
+    email: String
+}
+doctorSchema = new mongoose.Schema {
+    name: String,
+    password: Number,
+    department: String,
+    email: String
+}
+adminSchema = new mongoose.Schema {
+    name: String,
+    password: Number,
+    email: String
+}
+appointmentSchema = new mongoose.Schema {
+    patientEmail: String,
+    doctorEmail: String,
+    time: Date
+}
+
+patient = mongoose.model 'patient', patientSchema
+doctor = mongoose.model 'doctor', doctorSchema
+admin = mongoose.model 'admin', adminSchema
+appointment = mongoose.model 'appointment', appointmentSchema
 
 app.use express.static 'www'
 app.use express.json()
@@ -10,8 +42,22 @@ app.get '/', (req, res) ->
     return
 
 app.post '/symptoms', (req, res) ->
-    console.log req.body
-    console.log 'POST'
+    uname = req.body.uname
+    symptoms = req.body.symptoms
+    patient.findOne {email: uname}, (err, thisParticularPatient) ->
+        if thisParticularPatient == null
+            return
+        newSymptoms = data.symptomScores
+        scoreps = child.spawn 'python3', ['medscore.py', symptoms]
+        scoreps.stdout.on 'data', (data) ->
+            newSymptoms.push Number(data)
+            biasps = child.spawn 'python3', ['medscore.py'].concat newSymptoms
+            biasps.stdout.on 'data', (data) ->
+                thisParticularPatient.set {symptomScores: newSymptoms}
+                thisParticularPatient.set {bias: Number(data)}
+                return
+            return
+        return    
     res.sendStatus 200
     return
 
