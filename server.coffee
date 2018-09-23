@@ -78,6 +78,18 @@ app.post '/hms/admin', (req, res) ->
     res.redirect '/hms/admin/dashboard.html'
     return
 
+app.post '/hms/user-login.html', (req, res) ->
+    res.redirect '/hms/dashboard.html'
+    return
+    
+app.post '/hms/registration.html', (req, res) ->
+    res.redirect '/hms/user-login.html'
+    return
+    
+app.post '/hms/doctor', (req, res) ->
+    res.redirect '/hms/doctor/dashboard.html'
+    return
+
 app.listen 8080, () ->
     console.log 'up on 8080'
     
