@@ -42,6 +42,7 @@ app.get '/', (req, res) ->
     return
 
 app.post '/symptoms', (req, res) ->
+    console.log 'received symptoms POST'
     uname = req.body.uname
     symptoms = req.body.symptoms
     patient.findOne {email: uname}, (err, thisParticularPatient) ->
@@ -55,6 +56,7 @@ app.post '/symptoms', (req, res) ->
             biasps.stdout.on 'data', (data) ->
                 thisParticularPatient.set {symptomScores: newSymptoms}
                 thisParticularPatient.set {bias: Number(data)}
+                console.log thisParticularPatient
                 return
             return
         return    
