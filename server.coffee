@@ -72,9 +72,10 @@ app.post '/symptoms', (req, res) ->
     res.sendStatus 200
     return
 
-app.post '/hms/:we', (req, res) ->
+app.post '/hms/admin', (req, res) ->
     # sure m8
     res.sendStatus 200
+    res.redirect '/hms/admin/dashboard.html'
     return
 
 app.listen 8080, () ->
