@@ -17,7 +17,7 @@ for x in s:
     sum = sum + int(float(x))
 
 print(sum/(len(sys.argv)-1))
-sys.stderr.write((sum/(len(sys.argv)-1)) + " <- bias")
+sys.stderr.write(str(sum/(len(sys.argv)-1)) + " <- bias")
 sys.stderr.write("finished bias!\n")
 c = []
 
