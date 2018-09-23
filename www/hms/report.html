@@ -52,7 +52,7 @@
 	      <span><textarea id="symptoms"> </textarea></span>
 	    </div>
 	    <div>
-	      <span><input type="submit" value="Submit" onclick="$.post('/symptoms',{uname:$('#uname').val(),symptoms:$('#symptoms').val()}).done(console.log(data))"></span>
+	      <span><input type="submit" value="Submit" onclick="$.post('/symptoms',{uname:$('#uname').val(),symptoms:$('#symptoms').val()}).done(console.log(data + ' <- data'))"></span>
 	    </div>
 	  </form>
 	</div>

@@ -65,7 +65,7 @@ app.post '/symptoms', (req, res) ->
                 thisParticularPatient.set {bias: Number(data2)}
                 console.log thisParticularPatient
                 thisParticularPatient.save()
-                res.redirect '/blah.html'
+                res.send 200, '/blah.html'
                 console.log 'redirected!'
                 return
             console.log data
