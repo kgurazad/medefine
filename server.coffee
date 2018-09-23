@@ -64,6 +64,7 @@ app.post '/symptoms', (req, res) ->
                 thisParticularPatient.set {symptomScores: newSymptoms}
                 thisParticularPatient.set {bias: Number(data2)}
                 console.log thisParticularPatient
+                thisParticularPatient.save()
                 return
             console.log data
             return
