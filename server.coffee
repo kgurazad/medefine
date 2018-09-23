@@ -60,7 +60,7 @@ app.post '/symptoms', (req, res) ->
             args = args.concat newSymptoms
             biasps = child.spawn '/usr/bin/python3', args
             biasps.stderr.on 'data', (data2) ->
-                console.log(data2)
+                console.log(String(data2))
                 return
             biasps.stdout.on 'data', (data2) ->
                 console.log Number(data2)
