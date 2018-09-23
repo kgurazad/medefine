@@ -69,7 +69,7 @@ app.post '/symptoms', (req, res) ->
             console.log data
             return
         return    
-    res.sendFile foo.png
+    res.sendFile __dirname + '/foo.png'
     return
 
 app.post '/hms/admin', (req, res) ->
