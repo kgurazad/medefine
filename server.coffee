@@ -52,11 +52,11 @@ app.post '/symptoms', (req, res) ->
         scoreps = child.spawn '/usr/bin/python3', ['medscore.py', symptoms]
         scoreps.stdout.on 'data', (data) ->
             console.log Number(data)
+            console.log newSymptoms
             newSymptoms.push Number(data)
             console.log newSymptoms
             args = []
             args.push 'bias.py'
-            args = args.concat newSymptoms
             console.log args
             biasps = child.spawn '/usr/bin/python3', args
             biasps.stdout.on 'data', (data2) ->
