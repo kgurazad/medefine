@@ -1,5 +1,6 @@
 express = require 'express'
 mongoose = require 'mongoose'
+mongoose.connect 'mongodb://medefine:medefine0@ds111913.mlab.com:11913/medefine'
 child = require 'child_process'
 app = express()
 
