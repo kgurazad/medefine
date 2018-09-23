@@ -10,7 +10,7 @@
   "devDependencies": {},
   "scripts": {
     "test": "coffee --compile *.coffee && node server.js",
-    "start": "coffee --compile *.coffee && node server.js"
+    "start": "coffee --compile *.coffee && coffee --compile www/coffee/*.coffee && node server.js"
   },
   "repository": {
     "type": "git",
