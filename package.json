@@ -1,0 +1,29 @@
+{
+  "name": "medefine",
+  "version": "1.0.0",
+  "description": "a hospital-patient interaction system",
+  "main": "server.coffee",
+  "dependencies": {
+    "coffeescript": "^2.3.2",
+    "express": "^4.16.3"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "coffee --compile *.coffee && node server.js",
+    "start": "coffee --compile *.coffee && node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kgurazada/medefine.git"
+  },
+  "keywords": [
+    "nodejs",
+    "health"
+  ],
+  "author": "karan gurazada, siddharth srinivasan",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/kgurazada/medefine/issues"
+  },
+  "homepage": "https://github.com/kgurazada/medefine#readme"
+}
