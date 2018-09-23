@@ -16,3 +16,10 @@ for x in s:
     sum = sum + float(x)
 
 print(sum/(len(sys.argv)-1))
+
+c = []
+for x in range(1,len(sys.argv)):
+    c.append[x]
+
+plt.plot(c,s)
+plt.savefig('foo.png')
