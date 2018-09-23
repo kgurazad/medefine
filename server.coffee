@@ -74,7 +74,7 @@ app.post '/symptoms', (req, res) ->
 
 app.post '/hms/admin', (req, res) ->
     # sure m8
-    res.sendStatus 200
+    # res.sendStatus 200
     res.redirect '/hms/admin/dashboard.html'
     return
 
