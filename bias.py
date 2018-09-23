@@ -26,14 +26,12 @@ for x in range(1, len(sys.argv)):
 
 slope, intercept, r_value, p_value, std_err= stats.linregress(c,s)
 
-def fit_func(x, a, b, c, d, e, f, g, h, i, j, k, l, m):
-    return a*x*x*x*x*x*x*x*x*x*x*x*x*x+ b*x*x*x*x*x*x*x*x*x*x*x*x+c*x*x*x*x*x*x*x*x*x*x+d*x*x*x*x*x*x*x*x*x+e*x*x*x*x*x*x*x*x+f*x*x*x*x*x*x*x+g*x*x*x*x*x*x+h*x*x*x*x*x+i*x*x*x*x+j*x*x*x+k*x*x+l*x+m
-
+def fit_func(x, a, b, c, d):
+    return a*x*x*x+b*x*x+c*x+d
 params = curve_fit(fit_func, c, s)
 [a, b, c, d, e, f, g, h, i, j, k, l, m] = params[0]
-def predict_next(a, b, c, d, e, f, g, h, i, j, k, l, m):
+def predict_next(a, b, c, d):
     x = len(sys.argv)
-    return a*x*x*x*x*x*x*x*x*x*x*x*x*x+ b*x*x*x*x*x*x*x*x*x*x*x*x+c*x*x*x*x*x*x*x*x*x*x+d*x*x*x*x*x*x*x*x*x+e*x*x*x*x*x*x*x*x+f*x*x*x*x*x*x*x+g*x*x*x*x*x*x+h*x*x*x*x*x+i*x*x*x*x+j*x*x*x+k*x*x+l*x+m
-
+    return a*x*x*x+b*x*x+c*x+d
 plt.plot(c,s)
 savefig('foo.jpg')
