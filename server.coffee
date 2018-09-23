@@ -48,7 +48,7 @@ app.post '/symptoms', (req, res) ->
     patient.findOne {email: uname}, (err, thisParticularPatient) ->
         if thisParticularPatient == null
             return
-        newSymptoms = thisParticularPatient.symptomScores
+        newSymptoms = thisParticularPatient['symptomScores']
         scoreps = child.spawn '/usr/bin/python3', ['medscore.py', symptoms]
         scoreps.stdout.on 'data', (data) ->
             console.log Number(data)
