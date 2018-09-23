@@ -72,6 +72,11 @@ app.post '/symptoms', (req, res) ->
     res.sendStatus 200
     return
 
+app.post '/hms/:we', (req, res) ->
+    # sure m8
+    res.sendStatus 200
+    return
+
 app.listen 8080, () ->
     console.log 'up on 8080'
     
