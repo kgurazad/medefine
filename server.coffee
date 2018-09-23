@@ -1,9 +1,11 @@
 express = require 'express'
 app = express()
 
+app.use express.static 'www'
+
 app.get '/', (req, res) ->
-    res.sendFile __dirname+'/index.html'
-    return 
+    res.sendFile __dirname+'/www/index.html'
+    return
 
 app.post '/symptoms', (req, res) ->
     console.log req
