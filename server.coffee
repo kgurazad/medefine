@@ -50,16 +50,21 @@ app.post '/symptoms', (req, res) ->
             return
         newSymptoms = thisParticularPatient.symptomScores
         scoreps = child.spawn '/usr/bin/python3', ['medscore.py', symptoms]
-        console.log scoreps
+        scoreps.stderr.on 'data', (data) ->
+            console.log data
+            return
         scoreps.stdout.on 'data', (data) ->
             newSymptoms.push Number(data)
             biasps = child.spawn '/usr/bin/python3', ['medscore.py'].concat newSymptoms
-            console.log biasps
+            biasps.stderr.on 'data', (data2) ->
+                console.log data2
+                return
             biasps.stdout.on 'data', (data2) ->
                 thisParticularPatient.set {symptomScores: newSymptoms}
                 thisParticularPatient.set {bias: Number(data2)}
                 console.log thisParticularPatient
                 return
+            console.log data
             return
         return    
     res.sendStatus 200
