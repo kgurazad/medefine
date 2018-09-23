@@ -15,7 +15,6 @@ sum = 0
 for x in s:
     sum = sum + float(x)
 
-print(sum/(len(sys.argv)-1))
 
 c = []
 for x in range(1,len(sys.argv)):
@@ -25,3 +24,4 @@ plt.plot(c,s)
 plt.xlabel('#Report')
 plt.ylabel('Symptom Score')
 plt.savefig('/home/karangurazada/medefine/foo.png', bbox_inches='tight')
+print(sum/(len(sys.argv)-1))
