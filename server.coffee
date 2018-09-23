@@ -59,13 +59,16 @@ app.post '/symptoms', (req, res) ->
             args.push 'bias.py'
             args = args.concat newSymptoms
             biasps = child.spawn '/usr/bin/python3', args
+            biasps.stderr.on 'data', (data2) ->
+                console.log(data2)
+                return
             biasps.stdout.on 'data', (data2) ->
                 console.log Number(data2)
                 thisParticularPatient.set {symptomScores: newSymptoms}
                 thisParticularPatient.set {bias: Number(data2)}
                 console.log thisParticularPatient
                 thisParticularPatient.save()
-                res.send 200, '/blah.html'
+                res.redirect '/blah.html'
                 console.log 'redirected!'
                 return
             console.log data
