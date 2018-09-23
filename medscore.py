@@ -1,7 +1,6 @@
-from vaderSentiment import sentiment as vaderSentiment 
-import json
-jsonFile = open('user_report.json', 'r')
-sentences = json.load(jsonFile)
-for p in sentences['symptom']:
-    sentiment = vaderSentiment(p)
-    print(sentiment)
+from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer
+import sys
+analyser = SentimentIntensityAnalyzer()
+s = sys.argv[1]
+snt = analyser.polarity_scores(s)
+print(snt)
